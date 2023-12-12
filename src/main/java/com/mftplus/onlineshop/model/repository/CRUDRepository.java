@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import java.util.List;
 import java.util.Map;
 
-public class CRUDRepository<T> implements AutoCloseable{
+public class CRUDRepository<T,I> implements AutoCloseable{
     protected EntityManager entityManager;
     public CRUDRepository(){
         entityManager = JpaProvider.getJpa().getEntityManager();
@@ -30,7 +30,7 @@ public class CRUDRepository<T> implements AutoCloseable{
         return t;
     }
 
-    public T remove(Class<T> tClass,int id){
+    public T remove(Class<T> tClass,I id){
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();
         T t = (T) entityManager.find(tClass,id);
@@ -39,7 +39,7 @@ public class CRUDRepository<T> implements AutoCloseable{
         return t;
     }
 
-    public T findById(Class<T> tClass,int id){
+    public T findById(Class<T> tClass,I id){
         return (T) entityManager.find(tClass,id);
     }
 
