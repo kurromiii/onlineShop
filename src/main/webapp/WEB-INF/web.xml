@@ -6,4 +6,8 @@
     <welcome-file-list>
         <welcome-file>/html/home.html</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/html/errorPage.html</location>
+    </error-page>
 </web-app>

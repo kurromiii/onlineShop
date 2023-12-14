@@ -29,5 +29,11 @@ public class LoginFilter implements Filter {
             request.getSession().setAttribute("error","No access to admin pages!");
             response.sendRedirect("/home.do");
         }
+        else if (request.getRequestURI().equals("/html/errorPage.html")){
+            filterChain.doFilter(servletRequest,servletResponse);
+        }
+        else {
+            filterChain.doFilter(servletRequest,servletResponse);
+        }
     }
 }
