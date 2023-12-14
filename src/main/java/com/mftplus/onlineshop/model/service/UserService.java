@@ -66,9 +66,8 @@ public class UserService implements Service<User,String>{
             List<User> userList = crudRepository.findBy("User.FindByUsernameAndPassword",params);
             if (userList.isEmpty()){
                 throw new AccessDeniedException("Wrong username/password");
-            }else {
-                return userList.get(0);
             }
+            return userList.get(0);
         }
     }
 

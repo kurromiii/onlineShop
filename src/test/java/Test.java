@@ -8,9 +8,9 @@ public class Test {
 //        User user =
 //                User
 //                        .builder()
-//                        .name("ali")
+//                        .name("reza")
 //                        .family("alipour")
-//                        .username("ali")
+//                        .username("reza")
 //                        .password("123")
 //                        .userRole(UserRole.customer)
 //                        .build();
@@ -44,8 +44,10 @@ public class Test {
 //        System.out.println(UserService.getUserService().findByUsername("ali"));
 
         //findByUserNameAndPassword
-//        System.out.println(UserService.getUserService().findByUsernameAndPassword("ali","123"));
+//        System.out.println(UserService.getUserService().findByUsernameAndPassword("reza","123"));
 //        System.out.println(UserService.getUserService().findByUsernameAndPassword("ali","1"));
 //        System.out.println(UserService.getUserService().findByUsernameAndPassword("reza","123"));
+        User user = new User();
+        System.out.println(UserService.getUserService().findByUsernameAndPassword("melody","123"));
     }
 }
