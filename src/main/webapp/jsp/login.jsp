@@ -5,7 +5,7 @@
     <title>login</title>
 </head>
 <body>
-<form action=/login.do" method="post">
+<form action="/login.do" method="post">
     <label for="usernameId">Username</label>
     <input id="usernameId" type="text" name="username" placeholder="username">
 

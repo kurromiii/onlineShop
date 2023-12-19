@@ -23,13 +23,19 @@ public class Stuff {
     @GeneratedValue (strategy = GenerationType.AUTO)
     public long id;
 
-    @Column (name = "s_name",length = 10)
+    @Column (name = "s_name", length = 30)
     private String name;
 
     @Column (name = "s_brand", length = 10)
     private String brand;
 
     //this should be a list
-    @Column (name = "s_group", length = 10)
+    @Column (name = "s_group", length = 30)
     private String group;
+
+    @Column (name = "s_price")
+    public int price;
+
+    @OneToOne
+    private AnimeType category;
 }

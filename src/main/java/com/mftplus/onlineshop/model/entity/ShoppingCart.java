@@ -1,6 +1,5 @@
 package com.mftplus.onlineshop.model.entity;
 
-import com.mftplus.onlineshop.model.entity.enums.InvoiceType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,9 +16,9 @@ import java.util.List;
 @SuperBuilder
 @ToString
 
-@Entity (name = "invoiceEntity")
-@Table (name = "invoice_tbl")
-public class Invoice {
+@Entity (name = "shoppingCartEntity")
+@Table (name = "shoppingCart_tbl")
+public class ShoppingCart {
     @Id
     @Column (name = "id")
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -28,25 +27,23 @@ public class Invoice {
     @OneToOne(cascade = CascadeType.ALL)
     private User customer;
 
-    @Enumerated (EnumType.ORDINAL)
-    private InvoiceType invoiceType;
-
     @OneToMany(cascade = CascadeType.ALL)
-    private List<InvoiceItem> items = new ArrayList<>();
+    private List<ShoppingCartItem> items = new ArrayList<>();
 
     private int amount;
     private int discount;
     private int pureAmount;
 
     //for that List
-    public void addItem(InvoiceItem invoiceItem){
-        items.add(invoiceItem);
+    public void addItem(ShoppingCartItem shoppingCartItem){
+        items.add(shoppingCartItem);
     }
 
     @PrePersist
     public void calculateAmount(){
         int sum = 0;
-        for (InvoiceItem item : items) {
+        for (ShoppingCartItem item : items) {
+
             sum += item.getCount() * item.getPrice();
         }
         amount = sum;

@@ -38,6 +38,15 @@ public class User {
     @Column(name = "u_family", length = 10)
     private  String family;
 
+    @Column (name = "u_address",length = 30)
+    private String address;
+
+    @Column (name = "u_postalCode", length = 20)
+    private String postalCode;
+
+    @Column (name = "u_phoneNumber",length = 11)
+    private String phoneNumber;
+
     @Enumerated (EnumType.ORDINAL)
     private UserRole userRole;
 
