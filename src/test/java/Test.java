@@ -5,16 +5,16 @@ import com.mftplus.onlineshop.model.service.UserService;
 public class Test {
     public static void main(String[] args) throws Exception {
         //save
-//        User user =
-//                User
-//                        .builder()
-//                        .name("reza")
-//                        .family("alipour")
-//                        .username("reza")
-//                        .password("123")
-//                        .userRole(UserRole.customer)
-//                        .build();
-//        System.out.println(UserService.getUserService().save(user));
+        User user =
+                User
+                        .builder()
+                        .name("reza")
+                        .family("alipour")
+                        .username("reza")
+                        .password("123")
+                        .userRole(UserRole.customer)
+                        .build();
+        System.out.println(UserService.getUserService().save(user));
 
         //edit
 //        User user =
@@ -47,7 +47,6 @@ public class Test {
 //        System.out.println(UserService.getUserService().findByUsernameAndPassword("reza","123"));
 //        System.out.println(UserService.getUserService().findByUsernameAndPassword("ali","1"));
 //        System.out.println(UserService.getUserService().findByUsernameAndPassword("reza","123"));
-        User user = new User();
-        System.out.println(UserService.getUserService().findByUsernameAndPassword("melody","123"));
+//        System.out.println(UserService.getUserService().findByUsernameAndPassword("melody","123"));
     }
 }

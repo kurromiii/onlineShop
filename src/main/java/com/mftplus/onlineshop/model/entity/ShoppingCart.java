@@ -16,8 +16,9 @@ import java.util.List;
 @SuperBuilder
 @ToString
 
+@NamedQuery(name = "ShoppingCartFindUser",query = "select oo from shoppingCartEntity oo where oo.customer.username=:username")
 @Entity (name = "shoppingCartEntity")
-@Table (name = "shoppingCart_tbl")
+@Table (name = "shopping_cart_tbl")
 public class ShoppingCart {
     @Id
     @Column (name = "id")

@@ -37,6 +37,7 @@ public class StuffServlet extends HttpServlet {
                         .build();
                 StuffService.getStuffService().save(stuff);
                 System.out.println("stuff saved");
+                req.getSession().setAttribute("name",name);
                 resp.sendRedirect("/home.do");
             }
         } catch (Exception e) {

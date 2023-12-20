@@ -13,7 +13,7 @@
 
 <a href="/stuff.do">saveStuff</a>
 <br><br><br>
-<form action="/cart.do">
+
 <table width="100%" border="1px" cellspacing="0px" cellpadding="10px">
     <thead>
     <tr>
@@ -26,6 +26,7 @@
     </thead>
     <tbody>
     <%for (Stuff stuff : StuffService.getStuffService().findAll()) {%>
+    <form action="/cart.do" method="post">
     <tr class="table-row">
         <td>
             <%=stuff.getName()%>
@@ -42,14 +43,20 @@
         <td>
             <%=stuff.getPrice()%>
         </td>
-        <td>
+        <td style="display: none">
+            <input name="stuffId" style="display: none" type="text" value=<%=stuff.getId()%>>
+        </td>
+        <td style="width: fit-content">
+            <input name="count" type="text" placeholder="count">
+        </td>
+        <td >
             <input type="submit" value="add">
         </td>
-
     </tr>
+    </form>
     <%}%>
     </tbody>
 </table>
-</form>
+
 </body>
 </html>

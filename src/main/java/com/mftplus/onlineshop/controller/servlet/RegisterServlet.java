@@ -1,6 +1,8 @@
 package com.mftplus.onlineshop.controller.servlet;
 
+import com.mftplus.onlineshop.model.entity.ShoppingCart;
 import com.mftplus.onlineshop.model.entity.User;
+import com.mftplus.onlineshop.model.service.ShoppingCartService;
 import com.mftplus.onlineshop.model.service.UserService;
 import lombok.extern.log4j.Log4j;
 
@@ -36,13 +38,23 @@ public class RegisterServlet extends HttpServlet {
                                 .password(password)
                                 .build();
                 UserService.getUserService().save(user);
+                System.out.println("kir0");
+                ShoppingCart shoppingCart =
+                        ShoppingCart
+                            .builder()
+                            .customer(user)
+                            .build();
+                System.out.println(shoppingCart.toString());
+                ShoppingCartService.getShoppingCartService().save(shoppingCart);
+                System.out.println("kir2");
                 System.out.println("user saved");
                 log.info("saved");
                 req.getSession().removeAttribute("register error");
                 resp.sendRedirect("/panel.do");
             }
         } catch (Exception e) {
-            System.out.println("user save error");
+            System.out.println("kir3");
+            System.out.println(e);
             req.getSession().setAttribute("register error", e.getMessage());
             resp.sendRedirect("/register.do");
         }
